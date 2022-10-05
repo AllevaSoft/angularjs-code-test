@@ -93,9 +93,10 @@ App.config(['$routeProvider',
 
         <div>
 
-          <h2>Alleva Playlist</h2>
+          <h2 style="text-align:center">Alleva Playlist</h2>
+          <button class="create-btn" ng-show="!isCreate && !isUpdate" ng-click="showCreateSong()">Create</button>
 
-          <table>
+          <table ng-show="!isCreate && !isUpdate">
             <tr>
               <th>#</th>
               <th>Artist</th>
@@ -108,9 +109,27 @@ App.config(['$routeProvider',
               <td>{{song.artist}}</td>
               <td>{{song.title}}</td>
               <td>{{song.year}}</td>
-              <td><button ng-click="removeSong(song)">remove</button></td>
+              <td>
+                <button ng-click="removeSong(song)">remove</button>
+                <button style="background-color: yellow;" ng-click="showUpdateSong(song)">update</button>
+              </td>
             </tr>
           </table>
+
+          <div ng-if="isCreate || isUpdate">
+            <form ng-submit="saveSong()">
+              <label for="artist">Artist:</label><br>
+              <input type="text" name="artist" ng-model="currentSong.artist"><br>
+              <label for="title">Last name:</label><br>
+              <input type="text" name="title" ng-model="currentSong.title"><br>
+              <label for="year">Year:</label><br>
+              <input type="text" name="year" ng-model="currentSong.year"><br><br>
+              <span>
+                <button type="button" ng-click="cancelForm()">Cancel</button>
+                <button type="submit" style="background-color:green">Submit</button>
+              </span>
+            </form> 
+          </div>
 
         </div>
         `,
