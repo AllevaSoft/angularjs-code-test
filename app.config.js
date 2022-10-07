@@ -13,18 +13,24 @@ App.config(['$routeProvider',
           <ul>
             <li>Identify the AngularJS code that needs to be migrated.</li>
             <li>Identify the Angular 2+ code that needs to be written (use TypeScript).</li>
+            <li>Identify and Refactor any AngularJS non-standard code practices when converting. </li>
             <li>Use the Angular CLI to build the application.</li>
             <li>Write and test the new Angular 2+ code.</li>
             <li>The application must maintain the current routes.</li>
             <li>The application must use SCSS for styling.</li>
+            <li>The application should maintain an index page.</li>
             <li>Ensure the application works as expected.</li>
+            <li>Models should be immutable.</li>
+            <li>Make good use of comments, and self-documenting code. No comments in markup.</li>
           </ul>
           <p>Bonus points:</p>
           <ul>
-            <li>Remove/Refactor any bad practices in code that you see.</li>
+            <li>Forms should use proper validation techniques.</li>
+            <li>Application should use proper type checking (no "any" types for instance).</li>
+            <li>Add meta to Routes (e.g. page title).</li>
             <li>Implement a good linting strategy.</li>
-            <li>Move view templates into separate files.</li>
             <li>Implement a good directory structure.</li>
+            <li>Use loading indicators where necessary.</li>
           </ul>
           <a 
             type="button" 
@@ -32,40 +38,6 @@ App.config(['$routeProvider',
           >Next page</a>
         `,
         controller: 'HomeController',
-      })
-      .when('/greeting', {
-        template: `
-
-          <style>
-            .move-on {
-              margin-top: 10px;
-            }
-          </style>
-
-          <h2 style="margin-top: 0;">Please enter your name below.</h2>
-          <form>
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" ng-model="firstName" />
-          
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" ng-model="lastName" />
-            
-            <button 
-              ng-click="greet()"
-              ng-disabled="!firstName || !lastName"
-            >Submit</button>
-          </form>
-          
-          <div class="message" ng-if="greeting">
-            {{ greeting }}
-            You may begin working on this exercise now.
-          </div>
-
-          <div ng-show="greeting" class="move-on">
-            <button ng-click="GoNext()">Next</button>
-          </div>
-        `,
-        controller: 'GreetingController',
       })
       .when('/songs', {
         template: `
