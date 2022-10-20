@@ -11,7 +11,7 @@ The goal of this exercise is for you to:
 - Write and test the new Angular 2+ code.
 - The application must maintain the current routes.
 - The application must use SCSS for styling.
-- The application should maintain an index page.
+- Replace the existing index/landing page ('/') with your own.
 - Ensure the application works as expected.
 - Models should be immutable.
 - Make good use of comments, and self-documenting code. No comments in markup.
